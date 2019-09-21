@@ -1,0 +1,46 @@
+#include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "LinkedList.h"
+
+//initialize a list
+
+void llist_init(LinkedList * list){
+  list->head = NULL;
+}
+
+void llist_print(LinkedList*list){
+  
+}
+
+void llist_add(LinkedList*list,char * name, char * password){
+  ListNode * n = (ListNode *)malloc(sizeof(ListNode));
+  n->name = name;
+  n->password = password;
+  n->inroom = "def";
+  n->next = list->head;
+  list->head = n;
+}
+
+int llist_remove(LinkedList * list, char *name){
+  ListNode * e = list->head;
+  ListNode * tmp;
+
+  if(e == NULL){
+    return 0;
+  }
+  while(e->next){
+    if(e->next->name == name){
+      tmp = e->next;
+      e->next = e->next->next;
+      free(tmp);
+      return 1;
+    }
+    else{
+      e = e->next;
+    }
+  }
+  return 0;
+}
+// this function is used in 

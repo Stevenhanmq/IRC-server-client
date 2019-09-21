@@ -1,0 +1,21 @@
+/*Data Structure for a list of users*/
+
+struct ListNode{
+  char * name;
+  char * password;
+  char * inroom;
+  struct ListNode * next;
+};
+
+typedef struct ListNode ListNode;
+
+struct LinkedList{
+  ListNode * head;
+};
+
+typedef struct LinkedList LinkedList;
+
+void llist_init(LinkedList * list);
+void llist_print(LinkedList * list);//not necessary
+void llist_add(LinkedList * list, char * name, char * password);//add at beginning
+void llist_remove(LinkedList * list, char * name);//delete user by name
